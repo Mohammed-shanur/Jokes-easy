@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: pink;
+    }
+    .box{
+        width: 70vw;
+        height: 50vh;
+        background-color: rgb(255, 255, 255);
+        margin:50px auto;
+        text-align: center;
+    }
+    h2{
+        text-align: center;
+        font-size: xx-large;
+    }
+    p{
+        text-align: center;
+        font-family: 'Dancing Script', cursive;
+        font-size:  small;
+        font-weight: 300;
+    }
+    input{
+        width: 100px;
+        height: 30px;
+        background-color: pink;
+        color: white;
+        /* padding: 0 600px; */
+        /* margin: 0 440px; */
+    }
+    .so{
+        width: 40px;
+        height: 40px;
+        margin: 0 30px;
+    }
+    .so3{
+        width: 40px;
+        height: 40px;
+        margin: 0 30px;
+    }
+    img{
+        width: 40px;
+        height: 40px;
+    }
+  
+</style>
+<body>
+    <div class="box">
+            <h2>Joke Of The Day</h2><br><br>
+            <p id="so"></p><br>
+
+     <input type="button" value="Next Joke" id="so1"><br><br><br><br><br><br>   
+
+    </div>
+</body>
+<script>
+    var a = document.getElementById("so");
+    var b = document.getElementById("so1");
+    const ask=()=>{
+        const set = {
+            headers:{
+                Accept:"application/json"
+            }
+        }
+        fetch("https://icanhazdadjoke.com",set).then((att)=>
+           att.json()).then((data)=>
+            a.innerHTML = `${data.joke}`)
+    }
+    b.addEventListener("click",ask);
+    
+ask();
+
+
+</script>
+</html>
